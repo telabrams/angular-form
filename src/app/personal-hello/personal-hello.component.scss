@@ -1,0 +1,22 @@
+/**Personal message*/
+.personal-message-wrapper {
+  .personal-message {
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px 0 rgba(62, 57, 107, 0.2), 0 2px 9px 0 rgba(62, 57, 107, 0.2);
+    background: #ffffff;
+    padding: 1rem;
+
+    p {
+      line-height: 2rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    .mat-button {
+      background: #ffffff;
+      color: #000000;
+    }
+  }
+}

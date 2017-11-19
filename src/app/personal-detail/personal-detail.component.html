@@ -1,0 +1,93 @@
+<form [formGroup]="personalForm" (submit)='formSubmitted()' class="persoal-form d-flex flex-column justify-content-center" novalidate>
+  <mat-tab-group>
+    <mat-tab label="Personal">
+      <div class="container">
+        <div class="row justify-content-center">
+          <section class="col-md-10 d-flex flex-column mt-5 mb-5">
+
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="Name"
+              formControlName="name">
+              <mat-error *ngIf="personalForm.get('name').invalid">
+                {{personalMessage.name}}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="Email"
+              formControlName="email">
+              <mat-error *ngIf="personalForm.get('email').invalid">
+                {{personalMessage.email.chooseMessage(personalForm)}}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="Phone number"
+              formControlName="phone"
+              type="tel">
+              <mat-error *ngIf="personalForm.get('phone').invalid">
+                {{personalMessage.phone.chooseMessage(personalForm)}}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="Date of birth (mm/dd/yyyy)"
+              formControlName="datepicker"
+              [matDatepicker]="picker">
+              <mat-error *ngIf="personalForm.get('datepicker').invalid">
+                {{personalMessage.datepicker}}
+              </mat-error>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker
+              #picker
+              touchUi="true"
+              disabled="false"
+              [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+
+          </section>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Location">
+      <div class="container">
+        <div class="row justify-content-center">
+          <section class="col-md-10 d-flex flex-column mt-5 mb-5">
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="Country"
+              formControlName="country">
+              <mat-error *ngIf="personalForm.get('country').invalid">
+                {{personalMessage.country}}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="City"
+              formControlName="city">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+              matInput
+              placeholder="State"
+              formControlName="state">
+            </mat-form-field>
+          </section>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <button mat-button [disabled]="!personalForm.valid" (mousedown)="setValues()">Submit</button>
+</form>
