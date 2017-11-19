@@ -16,11 +16,10 @@ export class PersonalHelloComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('personalForm'));
     let formDate = new Date(this.user.datepicker);
     this.date = {
-      day: formDate.getDay(),
+      day: formDate.getDate(),
       month: formDate.getMonth()+1,
       year: formDate.getFullYear()
     }
-    console.log(formDate);
   }
 
 }
